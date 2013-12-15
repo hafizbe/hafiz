@@ -1,0 +1,24 @@
+@import url(http://fonts.googleapis.com/earlyaccess/lateef.css);
+
+
+.lang_arab
+{
+	font-family: "Lateef",PDMS_IslamicFont, _PDMS_IslamicFont, Tahoma, Arial;
+	font-size: 50px;
+	direction: rtl;
+}
+
+#block_option
+{
+	padding-bottom: 30px;
+}
+
+#block_option button{
+	margin-bottom: 5px;
+
+}
+
+#surah_wrapper{
+	
+}
+
