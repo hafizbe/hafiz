@@ -12,4 +12,8 @@
 #
 
 class Surah < ActiveRecord::Base
+  validates :nb_versets, :presence => true
+  validates :name_arabic, :presence => true
+  validates :name_phonetic, :presence => true
+  validates :type_surah, :presence => true
 end
