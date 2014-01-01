@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131215152017) do
+ActiveRecord::Schema.define(version: 20140101114540) do
 
   create_table "surahs", force: true do |t|
     t.integer  "nb_versets"
     t.string   "name_arabic"
     t.string   "name_phonetic"
     t.string   "type_surah"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "verses", force: true do |t|
+    t.integer  "position"
+    t.integer  "surah_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
