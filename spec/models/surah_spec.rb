@@ -23,8 +23,6 @@ describe Surah do
     should respond_to(:name_phonetic)
     should respond_to(:name_arabic)
     should respond_to(:type_surah)
-
-
   end
 
   it "Devrait répondre à toutes les méthodes " do
