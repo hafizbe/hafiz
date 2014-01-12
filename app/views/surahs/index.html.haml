@@ -1,0 +1,117 @@
+.page-header
+  %h1
+    Surah
+    %small
+      %i.icon-double-angle-right
+      The cave
+.row
+.col-xs-12
+/ PAGE CONTENT BEGINS
+#timeline-1
+  .row
+    .widget-box
+      .widget-header.widget-header-small.header-color-dark
+        %h6
+          %i.icon-sort
+          Options and display
+        .widget-toolbar
+          %a{"data-action" => "collapse", :href => "#"}
+            %i.icon-chevron-up
+          %a{"data-action" => "close", :href => "#"}
+            %i.icon-remove
+      .widget-body
+        #block_option.row
+          .col-xs-4.col-sm-2.col-sm-offset-1
+            %h3.row.header.smaller.lighter.blue
+              %i.icon-cogs.bigger-125
+              Actions
+            %button.btn.btn-success.no-border Test test
+            %button.btn.btn-danger.no-border Test test
+            %button.btn.btn-info.no-border Test test
+          .col-xs-4.col-sm-3.col-sm-offset-1
+            %h3.row.header.smaller.lighter.blue
+              %i.icon-cogs.bigger-125
+              Option of surah
+            %label{:for => "select_surah"} Name :
+            %select#select_surah.form-control
+              %option Al-Fatiha
+              %option Al-Fatiha
+              %option Al-Fatiha
+              %option Al-Fatiha
+              %option Al-Fatiha
+            %label{:for => "select_from_verse"} From verse :
+            %select#select_from_verse.form-control
+              %option 1
+              %option 2
+              %option 3
+              %option 4
+              %option 5
+            %label{:for => "select_to_verse"} To verse :
+            %select#select_to_verse.form-control
+              %option 1
+              %option 2
+              %option 3
+              %option 4
+              %option{:selected => "selected"} 5
+          .col-xs-4.col-sm-3.col-sm-offset-1
+            %h3.row.header.smaller.lighter.blue
+              %i.icon-cogs.bigger-125
+              Option playing
+            %label{:for => "select_recitator"} Recitator :
+            %select#select_recitator.form-control
+              %option Mishary
+              %option Al-Fatiha
+              %option Al-Fatiha
+              %option Al-Fatiha
+              %option Al-Fatiha
+            %label{:for => "select_traduction"} Traduction :
+            %select#select_traduction.form-control
+              %option None
+              %option French
+            %label{:for => "select_size"} Size :
+            %select#select_size.form-control
+              %option Small
+              %option Medium
+              %option Large
+              %option Extra large
+          #btn_go.col-xs-4.col-sm-10.col-sm-offset-1
+            %p
+              %button.btn.btn-danger.btn-block Bismillah !
+  .col-xs-4.col-sm-11.col-sm-offset-1
+    %h3.row.header.smaller.lighter.blue
+      %i.icon-signal.bigger-125
+      Your progression
+    .progress.progress-striped.active{"data-percent" => "25%"}
+      .progress-bar.progress-bar-success{:style => "width: 25%;"}
+    #surah_wrapper.col-xs-12.col-sm-10.col-sm-offset-1
+    .timeline-container
+      .timeline-items
+        .timeline-item.clearfix
+          .timeline-info
+            %i.timeline-indicator.btn.btn-warning.no-hover.green
+          .widget-box
+            .widget-header.widget-header-small.header-color-orange
+              %span.widget-toolbar.no-border
+              %span.widget-toolbar
+                %a{"data-action" => "collapse", :href => "#"}
+                  %i.icon-chevron-up
+            .widget-body
+              .widget-main
+                .content_surah_arabic.lang_arab
+                  =@surah_presenter.ayahs[0]
+                .space-6
+                .widget-toolbox.clearfix
+                  .pull-right.action-buttons
+                    %a{:href => "#"}
+                      %button.btn.btn-xs.btn-success Very Good
+                    %a{:href => "#"}
+                      %button.btn.btn-xs Cancel
+                    %a{:href => "#"}
+                      %button.btn.btn-xs.btn-danger Bad
+        .timeline-item.clearfix
+          .widget-box.transparent
+            .widget-header.widget-header-small.hidden
+            .widget-body
+              .widget-main
+                Dis: «Que diriez-vous? Si Allah vous assignait la nuit en permanence jusqu’au Jour de la Résurrection, quelle divinité autre qu’Allah pourrait vous apporter une lumière? N’entendez-vous donc pas?»
+      / /.timeline-items

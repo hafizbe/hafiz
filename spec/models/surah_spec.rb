@@ -8,7 +8,7 @@ describe Surah do
 
   it { should have_many(:verses) }
 
-  it { @surah.should be_valid}
+  it { @surah.should be_valid }
 
   it 'Devrait avoir 1 verset au minimum' do
     @surah.nb_versets.should be 7
@@ -25,12 +25,12 @@ describe Surah do
     should respond_to(:type_surah)
   end
 
-  it "Devrait répondre à toutes les méthodes " do
+  it "Devrait répondre à toutes les méthodes" do
     Surah.should respond_to(:load_surahs)
     Surah.should respond_to(:load_verses)
   end
 
-  it "Devrait avoir  114 sourates " do
+  it "Devrait avoir  114 sourates" do
     Surah.load_surahs
     nb_sourates = Surah.count
     nb_sourates.should be 114
