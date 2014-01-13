@@ -1,6 +1,8 @@
 Hafiz::Application.routes.draw do
 
 
+  resources :recitators
+
   get "surahs/show"
   get "surahs/index"
 

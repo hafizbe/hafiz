@@ -85,33 +85,29 @@
       .progress-bar.progress-bar-success{:style => "width: 25%;"}
     #surah_wrapper.col-xs-12.col-sm-10.col-sm-offset-1
     .timeline-container
-      .timeline-items
-        .timeline-item.clearfix
-          .timeline-info
-            %i.timeline-indicator.btn.btn-warning.no-hover.green
-          .widget-box
-            .widget-header.widget-header-small.header-color-orange
-              %span.widget-toolbar.no-border
-              %span.widget-toolbar
-                %a{"data-action" => "collapse", :href => "#"}
-                  %i.icon-chevron-up
-            .widget-body
-              .widget-main
-                .content_surah_arabic.lang_arab
-                  =@surah_presenter.ayahs[0]
-                .space-6
-                .widget-toolbox.clearfix
-                  .pull-right.action-buttons
-                    %a{:href => "#"}
-                      %button.btn.btn-xs.btn-success Very Good
-                    %a{:href => "#"}
-                      %button.btn.btn-xs Cancel
-                    %a{:href => "#"}
-                      %button.btn.btn-xs.btn-danger Bad
-        .timeline-item.clearfix
-          .widget-box.transparent
-            .widget-header.widget-header-small.hidden
-            .widget-body
-              .widget-main
-                Dis: «Que diriez-vous? Si Allah vous assignait la nuit en permanence jusqu’au Jour de la Résurrection, quelle divinité autre qu’Allah pourrait vous apporter une lumière? N’entendez-vous donc pas?»
-      / /.timeline-items
+      -@surah_presenter.ayahs.each do |ayah|
+        .timeline-items
+          .timeline-item.clearfix
+            .timeline-info
+              %i.timeline-indicator.btn.btn-default.no-hover.green
+            .widget-box.transparent
+              .widget-header.widget-header-small
+                %span.widget-toolbar.no-border
+                %span.widget-toolbar
+                  %a{"data-action" => "collapse", :href => "#"}
+                    %i.icon-chevron-up
+              .widget-body
+                .widget-main
+                  .content_surah_arabic.lang_arab
+                    =ayah
+                  .space-6
+                  .widget-toolbox.clearfix
+                    .pull-right.action-buttons
+                      %a{:href => "#"}
+                        %button.btn.btn-xs.btn-success Very Good
+                      %a{:href => "#"}
+                        %button.btn.btn-xs Cancel
+                      %a{:href => "#"}
+                        %button.btn.btn-xs.btn-danger Bad
+          .timeline-item.clearfix
+

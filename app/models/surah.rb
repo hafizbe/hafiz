@@ -23,7 +23,7 @@ class Surah < ActiveRecord::Base
   def get_ayahs(from_verset, to_verset)
     require 'open-uri'
     s3 = AWS::S3.new
-    url = s3.buckets['hafizbe'].objects["surah_content/Chapter001.xml"].url_for(:read, :secure => false).to_s
+    url = s3.buckets['hafizbe'].objects["surah_content/Chapter030.xml"].url_for(:read, :secure => false).to_s
     doc_xml = Nokogiri::XML(open url)
     tab_content_aya = []
     doc_xml.xpath("//Verse[@VerseID >= #{from_verset} and @VerseID <=#{to_verset}]").each do |verse|

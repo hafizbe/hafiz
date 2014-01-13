@@ -5,10 +5,8 @@ class SurahPresenter
 		@from_verse = from_verse
 		@to_verse = to_verse
 
-    @ayahs = self.get_ayahs
+    @ayahs = @surah.get_ayahs(@from_verse, @to_verse)
 	end
 
-	def get_ayahs
-		@surah.get_ayahs(@from_verse, @to_verse)
-	end
+
 end

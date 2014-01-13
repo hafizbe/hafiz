@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @recitator.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @recitator.value %>
+</p>
+
+<%= link_to 'Edit', edit_recitator_path(@recitator) %> |
+<%= link_to 'Back', recitators_path %>
