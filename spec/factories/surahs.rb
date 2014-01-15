@@ -7,4 +7,11 @@ FactoryGirl.define do
     name_phonetic "The Opening"
     type_surah "Meccan"
   end
+
+  factory :surah_nas , :class=> Surah do
+    nb_versets 6
+    name_arabic "الناس"
+    name_phonetic "An-Naas"
+    type_surah "Meccan"
+  end
 end

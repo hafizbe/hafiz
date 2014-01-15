@@ -14,12 +14,15 @@
 
 #block_option
 {
-	padding-bottom: 30px;
+	#padding-bottom: 30px;
 }
 
 #block_option button{
 	margin-bottom: 5px;
 
+}
+#block_option #btn-submit_surah{
+    margin-top: 25px;
 }
 
 #surah_wrapper{

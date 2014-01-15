@@ -3,8 +3,9 @@ Hafiz::Application.routes.draw do
 
   resources :recitators
 
-  get "surahs/show"
+  get 'surahs/:id' => 'surahs#show'
   get "surahs/index"
+  post "surahs/index"
 
   get "pages/home"
   get "page/index"
