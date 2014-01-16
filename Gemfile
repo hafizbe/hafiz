@@ -3,8 +3,17 @@ gem 'aws-sdk'
 gem 'nokogiri'
 gem 'haml'
 gem 'html2haml'
-gem 'mysql2', group: :development
-gem 'pg', group: :production
+
+group :production do
+  gem 'pg'
+end
+
+group :development do
+	gem 'mysql2'
+end
+
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -39,7 +48,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development, :test do
+group :test do
   
   gem 'rspec-rails'
   gem 'factory_girl_rails'
