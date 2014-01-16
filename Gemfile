@@ -45,8 +45,10 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'spork-rails'
 
+end
 
-
+group :production do
+	gem'pg'
 end
 
 # Use ActiveModel has_secure_password
