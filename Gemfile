@@ -3,7 +3,8 @@ gem 'aws-sdk'
 gem 'nokogiri'
 gem 'haml'
 gem 'html2haml'
-
+gem 'mysql2', group: :development
+gem 'pg', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -39,16 +40,12 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'mysql2'
+  
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'spork-rails'
 
-end
-
-group :production do
-	gem'pg'
 end
 
 # Use ActiveModel has_secure_password
