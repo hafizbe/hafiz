@@ -11,6 +11,7 @@ end
 
 group :development do
 	gem 'mysql2'
+  gem 'quiet_assets'
 end
 
 
