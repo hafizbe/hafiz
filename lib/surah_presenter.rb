@@ -1,13 +1,13 @@
 class SurahPresenter
-  attr_accessor :ayahs,:surahs, :surah
+  attr_accessor :ayahs,:surahs, :surah, :recitators, :to_verse
 	
 	def initialize(surah, from_verse, to_verse)
 		@surah = surah
 		@from_verse = from_verse
-		@to_verse = to_verse
+		@to_verse = choose_verset_maximum to_verse
 
     @surahs = Surah.all
-    @ayahs = @surah.get_ayahs(@from_verse, @to_verse)
+    @ayahs = @surah.get_ayahs(@from_verse, @to_verse["max_selected"])
     @recitators = Recitator.all
   end
 
