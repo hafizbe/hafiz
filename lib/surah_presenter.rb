@@ -1,5 +1,5 @@
 class SurahPresenter
-  attr_accessor :ayahs,:surahs, :surah, :recitators, :to_verse
+  attr_accessor :ayahs,:surahs, :surah, :recitators, :to_verse, :from_verse
 	
 	def initialize(surah, from_verse, to_verse)
 		@surah = surah
