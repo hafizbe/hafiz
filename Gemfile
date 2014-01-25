@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'aws-sdk'
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.6.1.beta'
 gem 'haml'
 gem 'html2haml'
 
