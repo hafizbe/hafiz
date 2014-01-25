@@ -1,0 +1,9 @@
+class SurahContent
+  attr_accessor :ayahs_arabic, :surah
+
+  def initialize(sourate, from_verse, to_verse, lst_traduction)
+    @surah = sourate
+    @ayahs_arabic = @sourate.get_ayahs(from_verse, to_verse, lst_traduction)
+
+  end
+end

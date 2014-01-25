@@ -8,7 +8,7 @@ class SurahsController < ApplicationController
       surah_id = params[:surah_id]
     end
     surah = Surah.find(surah_id)
-  	@surah_presenter = SurahPresenter.new(surah,1,7)
+  	@surah_presenter = SurahPresenter.new(surah,params[:select_from_verse],params[:select_to_verse], params[:select_to_verse_check], params[:select_traduction])
     render "show"
   end
 
@@ -20,7 +20,7 @@ class SurahsController < ApplicationController
       surah_id = params[:id]
     end
     surah = Surah.find(surah_id)
-    @surah_presenter = SurahPresenter.new(surah,1,7)
+    @surah_presenter = SurahPresenter.new(surah,params[:select_from_verse],params[:select_to_verse], params[:select_to_verse_check], params[:select_traduction])
     render "show"
   end
 

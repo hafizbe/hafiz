@@ -5,3 +5,7 @@ $(document).ready =>
   $("#select_surah").change((e) =>
     $("#frm_surahs").submit()
   )
+
+  $("#select_to_verse").change((e) =>
+    $("#select_to_verse_check").val 1
+  )
