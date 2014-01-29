@@ -10,7 +10,11 @@ Hafiz::Application.routes.draw do
   get "pages/home"
   get "page/index"
 
-
+  namespace :api do
+    namespace :v1 do
+      get "get_url_amazon" => "amazon#get_url"
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
