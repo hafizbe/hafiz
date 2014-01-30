@@ -278,7 +278,6 @@ $(document).ready =>
     from_verset = $("#select_from_verse").val()
     to_verset = $("#select_to_verse").val()
     recitator = $("#select_recitator").val()
-    alert recitator
     player.current_aya = $("#select_from_verse").val()
 
     play_recitation id_surah, recitator, from_verset, to_verset
