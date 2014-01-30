@@ -3,6 +3,7 @@ gem 'aws-sdk'
 gem 'nokogiri', '~> 1.6.1.beta'
 gem 'haml'
 gem 'html2haml'
+gem 'soundmanager-rails'
 
 group :production do
   gem 'pg'

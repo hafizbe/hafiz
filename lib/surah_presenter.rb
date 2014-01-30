@@ -1,12 +1,13 @@
 class SurahPresenter
-  attr_accessor :ayahs,:surahs, :surah, :recitators, :to_verse, :from_verse, :traduction, :langues, :ayahs_traducted
+  attr_accessor :ayahs,:surahs, :surah, :recitators,:recitator, :to_verse, :from_verse, :traduction, :langues, :ayahs_traducted
 	
-	def initialize(surah, from_verse, to_verse, to_verse_check, select_traduction)
+	def initialize(surah, from_verse, to_verse, to_verse_check, select_traduction, recitator)
 		@surah = surah
 		@from_verse = choose_verset_minimum from_verse
 		@to_verse = choose_verset_maximum to_verse, to_verse_check
     @traduction = choose_traduction select_traduction
     @langues = get_langue
+    @recitator = choose_recitator_name recitator
 
     @surahs = Surah.all
     @ayahs_traducted = @surah.get_traduction @traduction, @from_verse, @to_verse["max_selected"]
@@ -39,6 +40,14 @@ class SurahPresenter
       traduction  = select_traduction
     end
     traduction
+  end
+
+  def choose_recitator_name(lst_recitator_name)
+    recitator_name = "Mishary"
+    unless lst_recitator_name.nil?
+      recitator_name  = lst_recitator_name
+    end
+    recitator_name
   end
 
   def get_langue

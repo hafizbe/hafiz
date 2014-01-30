@@ -46,7 +46,7 @@
                 %i.icon-cogs.bigger-125
                 Option playing
               %label{:for => "select_recitator"} Recitator :
-              =select_tag 'select_recitator', options_for_select(@surah_presenter.recitators.collect {|recitator| [recitator.value, recitator.name] }, 1),:class =>"form-control", :name => 'recitator_name'
+              =select_tag 'select_recitator', options_for_select(@surah_presenter.recitators.collect {|recitator| [recitator.value, recitator.name] }, @surah_presenter.recitator),:class =>"form-control", :name => 'select_recitator'
 
               %label{:for => "select_traduction"} Traduction :
               =select_tag 'select_traduction', options_for_select(@surah_presenter.langues.collect{|value , key |[key , value]}, @surah_presenter.traduction),:class =>"form-control", :name => 'select_traduction'
@@ -84,7 +84,7 @@
                     %i.icon-chevron-up
               .widget-body
                 .widget-main
-                  .content_surah_arabic.lang_arab
+                  .content_surah_arabic.lang_arab{:id => "ayah_#{current_verse}"}
                     =ayah
                   .space-6
                   .widget-toolbox.clearfix
@@ -92,7 +92,7 @@
                       %a{:href => "#"}
                         %button.btn.btn-xs.btn-success Very Good
                       %a{:href => "#"}
-                        %button.btn.btn-xs Cancel
+                        %button.btn.btn-xs.btn-warning Good
                       %a{:href => "#"}
                         %button.btn.btn-xs.btn-danger Bad
 

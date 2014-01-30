@@ -1,3 +1,8 @@
 // Place all the styles related to the Surahs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.ayah_playing{
+  background-color: rgb(196, 236, 189);
+  transition-property: background-color;
+  transition-duration: 1s;
+}
