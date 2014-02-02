@@ -21,20 +21,20 @@
             %i.icon-remove
       .widget-body
         #block_option.row
-          = form_for :surah, :url => {:controller => 'surahs', :action => 'index'}, :html => {:id => "frm_surahs"} do |f|
+          = form_for :surah, :url => post_surah_path, :html => {:id => "frm_surahs"} do |f|
             .col-xs-4.col-sm-2.col-sm-offset-1
               %h3.row.header.smaller.lighter.blue
                 %i.icon-cogs.bigger-125
                 Actions
-              %button.btn.btn-success.no-border{:type => "button"} Action 1
-              %button.btn.btn-danger.no-border{:type => "button"} Action 2
+              %button.btn.btn-success.no-border{:type => "button"} Option playing
+              %button.btn.btn-warning.no-border{:type => "button"} Action 2
               %button.btn.btn-info.no-border{:type => "button"} Action 3
             .col-xs-4.col-sm-3.col-sm-offset-1
               %h3.row.header.smaller.lighter.blue
                 %i.icon-cogs.bigger-125
                 Option of surah
               %label{:for => "select_surah"} Name :
-              =select_tag 'select_surah', options_for_select(@surah_presenter.surahs.collect {|surah| ["#{surah.id} - #{surah.name_phonetic}", surah.id] }, @surah_presenter.surah.id),:class =>"form-control", :name => 'surah_id'
+              =select_tag 'select_surah', options_for_select(@surah_presenter.surahs.collect {|surah| ["#{surah.id} - #{surah.name_phonetic}", surah.id] }, @surah_presenter.surah.id),:class =>"form-control", :name => 'id'
               %label{:for => "select_from_verse"} From verse :
               =select_tag 'select_from_verse', options_for_select(1..@surah_presenter.to_verse["max"], @surah_presenter.from_verse) , :class => 'form-control'
               %label{:for => "select_to_verse"} To verse :

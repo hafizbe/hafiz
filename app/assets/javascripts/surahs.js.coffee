@@ -182,6 +182,19 @@ play_fichier = (_url_fichier, _fichier_temp, _nb_fichier, _num_sourate, _recitat
           autoPlay: player.state_auto_play
           multiShotEvents: false
           multiShot: false
+          onstop : =>
+            console.log "STOP"
+          onresume : =>
+            $("#button_play_surah .icon-play").removeClass("icon-play")
+            $("#button_play_surah i").addClass("icon-pause")
+          onpause: =>
+            $("#button_play_surah .icon-pause").removeClass("icon-pause")
+            $("#button_play_surah i").addClass("icon-play")
+            sound = soundManager.getSoundById player.current_file_id
+          onplay : =>
+              $("#button_play_surah .icon-play").removeClass("icon-play")
+              $("#button_play_surah i").addClass("icon-pause")
+
           onfinish : =>
 
             if (_fichier_temp + 1) <= _nb_fichier
@@ -266,6 +279,12 @@ son_exist = (sound_id) =>
 
 $(document).ready =>
   $("#select_surah").change((e) =>
+    id_surah_selected =  $(e.currentTarget).val()
+
+    if document.URL.indexOf("surahs") != -1
+      $("#frm_surahs").attr('action',id_surah_selected)
+    else
+      $("#frm_surahs").attr('action','surahs/'+id_surah_selected)
     $("#frm_surahs").submit()
   )
 
@@ -273,13 +292,30 @@ $(document).ready =>
     $("#select_to_verse_check").val 1
   )
 
-  $("#sidebar-shortcuts-large").on('click','#button_play_surah', (e) =>
-    id_surah = $("#select_surah").val()
-    from_verset = $("#select_from_verse").val()
-    to_verset = $("#select_to_verse").val()
-    recitator = $("#select_recitator").val()
-    player.current_aya = $("#select_from_verse").val()
+  $("#sidebar-shortcuts-large").on('click','#button_stop_surah', (e) =>
+    if son_exist(player.current_file_id)
+      sound = soundManager.getSoundById player.current_file_id
+      sound.stop()
 
-    play_recitation id_surah, recitator, from_verset, to_verset
 
+  )
+
+  $("#sidebar-shortcuts-large").on('click','#button_play_surah .icon-play', (e) =>
+    if son_exist(player.current_file_id)
+      sound = soundManager.getSoundById player.current_file_id
+      sound.resume()
+    else
+      id_surah = $("#select_surah").val()
+      from_verset = $("#select_from_verse").val()
+      to_verset = $("#select_to_verse").val()
+      recitator = $("#select_recitator").val()
+      player.current_aya = $("#select_from_verse").val()
+      play_recitation id_surah, recitator, from_verset, to_verset
+
+  )
+
+  $("#sidebar-shortcuts-large").on('click','#button_play_surah .icon-pause', (e) =>
+    if son_exist(player.current_file_id)
+      sound = soundManager.getSoundById player.current_file_id
+      sound.pause()
   )

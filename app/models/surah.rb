@@ -22,6 +22,9 @@ class Surah < ActiveRecord::Base
   validates :type_surah, :presence => true
 
 
+  def to_param
+    "#{id}-#{name_phonetic}".parameterize
+  end
   def get_ayahs(from_verset, to_verset)
     require 'open-uri'
     s3 = AWS::S3.new

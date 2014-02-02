@@ -4,8 +4,8 @@ Hafiz::Application.routes.draw do
   resources :recitators
 
   get 'surahs/:id' => 'surahs#show'
-  get "surahs/index"
-  post "surahs/index"
+
+  post 'surahs/:id' => 'surahs#show', as: 'post_surah'
 
   get "pages/home"
   get "page/index"
@@ -20,7 +20,7 @@ Hafiz::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'surahs#index'
+   root 'surahs#show', :id => 1
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
