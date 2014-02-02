@@ -17,8 +17,6 @@
         .widget-toolbar
           %a{"data-action" => "collapse", :href => "#"}
             %i.icon-chevron-up
-          %a{"data-action" => "close", :href => "#"}
-            %i.icon-remove
       .widget-body
         #block_option.row
           = form_for :surah, :url => post_surah_path, :html => {:id => "frm_surahs"} do |f|
