@@ -183,17 +183,32 @@ play_fichier = (_url_fichier, _fichier_temp, _nb_fichier, _num_sourate, _recitat
           multiShotEvents: false
           multiShot: false
           onstop : =>
-            console.log "STOP"
+            sound = soundManager.getSoundById player.current_file_id
+            s.destruct()
+            if player.state == "playing"
+              $("#button_pause_surah .icon-pause").removeClass("icon-pause")
+              $("#button_pause_surah i").addClass("icon-play")
+              $("#button_pause_surah").attr('id','button_play_surah')
+
+
           onresume : =>
             $("#button_play_surah .icon-play").removeClass("icon-play")
             $("#button_play_surah i").addClass("icon-pause")
+            $("#button_play_surah").attr('id','button_pause_surah')
+            player.state = "playing"
           onpause: =>
-            $("#button_play_surah .icon-pause").removeClass("icon-pause")
-            $("#button_play_surah i").addClass("icon-play")
+            $("#button_pause_surah .icon-pause").removeClass("icon-pause")
+            $("#button_pause_surah i").addClass("icon-play")
+            $("#button_pause_surah").attr('id','button_play_surah')
             sound = soundManager.getSoundById player.current_file_id
+            player.state = "pause"
           onplay : =>
               $("#button_play_surah .icon-play").removeClass("icon-play")
               $("#button_play_surah i").addClass("icon-pause")
+              elem = $("#button_play_surah")
+              elem.removeAttr('id')
+              elem.attr('id','button_pause_surah')
+              player.state = "playing"
 
           onfinish : =>
 
@@ -265,7 +280,7 @@ player =
     verset.addClass("ayah_playing",{duration:500})
     verset_offset =verset.offset().top
     $('body,html').animate(
-      {scrollTop: (verset_offset - 50)+"px"}, {easing: "swing", duration: 1600}
+      {scrollTop: (verset_offset - 100)+"px"}, {easing: "swing", duration: 1600}
     )
     this.current_aya = parseInt(this.current_aya) + 1
 
@@ -296,11 +311,9 @@ $(document).ready =>
     if son_exist(player.current_file_id)
       sound = soundManager.getSoundById player.current_file_id
       sound.stop()
-
-
   )
 
-  $("#sidebar-shortcuts-large").on('click','#button_play_surah .icon-play', (e) =>
+  $("#sidebar-shortcuts-large").on('click','#button_play_surah', (e) =>
     if son_exist(player.current_file_id)
       sound = soundManager.getSoundById player.current_file_id
       sound.resume()
@@ -314,7 +327,7 @@ $(document).ready =>
 
   )
 
-  $("#sidebar-shortcuts-large").on('click','#button_play_surah .icon-pause', (e) =>
+  $("#sidebar-shortcuts-large").on('click','#button_pause_surah', (e) =>
     if son_exist(player.current_file_id)
       sound = soundManager.getSoundById player.current_file_id
       sound.pause()
